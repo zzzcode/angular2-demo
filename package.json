@@ -1,5 +1,6 @@
 {
   "name": "angular2-demo",
+  "discription": "A simple demo for angular 2",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server --inline --colors --progress --port 3000"
