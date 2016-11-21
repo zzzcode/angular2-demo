@@ -14,9 +14,9 @@ import { LoggerService } from './logger.service';
         是否显示详细信息
       </label>
     </p>
-    <p *ngIf="isShowMore">Angular 2 是 Google 推出的新一代的Web开发框架</p>
-    <my-child [data]="toChild" (outer)="receive($event)"></my-child>
-    <p highlight="red">我从子组件获得的东西：{{ fromChild || '暂无' }}</p>
+    <p highlight *ngIf="isShowMore">Angular 2 是 Google 推出的新一代的Web开发框架</p>
+    <my-child [message]="msgToChild" (outer)="receive($event)"></my-child>
+    <p>从子组件获得的消息：{{ msgFromChild || '暂无' }}</p>
   </div>
   `,
   styles:[
@@ -32,18 +32,18 @@ import { LoggerService } from './logger.service';
 export class AppComponent {
   private greeting: string;
   private isShowMore: boolean;
-  private toChild: string;
-  private fromChild: string;
+  private msgToChild: string;
+  private msgFromChild: string;
 
 	constructor(private logger: LoggerService) {	}
 
   ngOnInit() {
     this.greeting = 'Angular 2';
-    this.toChild = 'Love!';
+    this.msgToChild = 'Love!';
     this.logger.debug('应用已初始化');
   }
 
   receive(msg: string) {
-    this.fromChild = msg;
+    this.msgFromChild = msg;
   }
 }

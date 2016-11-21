@@ -1,15 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { LoggerService } from './logger.service';
-
 @Component({
   selector: 'my-child',
   template: `
     <div>
       <h1>子组件</h1>
-      <p>嘿嘿，我从父组件获取的值是：{{ data }}</p>
-      <input (change)="inputData=$event.target.value">
-      <button (click)="sendToParent()">发给父组件</button>
+      <p>嘿嘿，我从父组件获取的值是：{{ message }}</p>
+      <button (click)="sendToParent()">发送到父组件</button>
     </div>
   `,
   styles:[
@@ -23,18 +20,11 @@ import { LoggerService } from './logger.service';
   ]
 })
 export class ChildComponent {
-  @Input() private data: string;
+  @Input() private message: string;
   @Output() private outer = new EventEmitter<string>();
-  private inputData: string;
-	constructor(private logger: LoggerService) {	}
-
-  ngOnInit() {
-    this.logger.debug('子组件已初始化');
-  }
-
+	constructor() {	}
+  
   sendToParent() {
-    if(!this.inputData) return;
-    this.outer.emit(this.inputData);
+    this.outer.emit('Love from Child ~');
   }
-
 }

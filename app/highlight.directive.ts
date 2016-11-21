@@ -1,10 +1,9 @@
-import { Directive, Input, ElementRef, Renderer } from '@angular/core';
+import { Directive, ElementRef, Renderer } from '@angular/core';
 
 @Directive({
   selector: "[highlight]"
 })
 export class HighlightDirective {
-  @Input("highlight") private color: string;
   constructor(
     private el: ElementRef, 
     private renderer: Renderer
