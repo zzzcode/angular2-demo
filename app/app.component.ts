@@ -39,7 +39,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.greeting = 'Angular 2';
-    this.msgToChild = 'Love!';
+    this.msgToChild = 'msg from parent';
     this.logger.debug('应用已初始化');
   }
 

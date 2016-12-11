@@ -25,6 +25,6 @@ export class ChildComponent {
 	constructor() {	}
   
   sendToParent() {
-    this.outer.emit('Love from Child ~');
+    this.outer.emit('message from child');
   }
 }
